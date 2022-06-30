@@ -8,7 +8,27 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "catalog.api": "StartDebugging",
-        "catalogdb": "StartWithoutDebugging"
+        "catalogdb": "StartWithoutDebugging",
+        "basket.api": "StartDebugging",
+        "basketdb": "StartWithoutDebugging",
+        "discount.api": "StartDebugging",
+        "discountdb": "StartWithoutDebugging",
+        "pgadmin": "StartWithoutDebugging",
+        "portainer": "StartWithoutDebugging"
+      }
+    },
+    "Docker Compose no debug": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "basket.api": "StartWithoutDebugging",
+        "basketdb": "StartWithoutDebugging",
+        "catalog.api": "StartWithoutDebugging",
+        "catalogdb": "StartWithoutDebugging",
+        "discount.api": "StartWithoutDebugging",
+        "discountdb": "StartWithoutDebugging",
+        "pgadmin": "StartWithoutDebugging",
+        "portainer": "StartWithoutDebugging"
       }
     }
   }
