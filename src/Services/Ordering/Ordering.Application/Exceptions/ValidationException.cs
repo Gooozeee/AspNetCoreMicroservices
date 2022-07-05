@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Exceptions
 {
-    internal class ValidationException : ApplicationException
+    public class ValidationException : ApplicationException
     {
         public ValidationException()
             : base("One or more validation failures have occured.")
