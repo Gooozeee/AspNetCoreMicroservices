@@ -20,14 +20,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
-var app = builder.Build();
-
-app.MigrateDatabase<OrderContext>((context, services) =>
-{
-    var logger = services.GetService<ILogger<OrderContextSeed>>();
-    OrderContextSeed.SeedAsync(context, logger).Wait();
-});
-
 // MassTranst RabbitMQ Configuration
 builder.Services.AddMassTransit(config => {
 
@@ -48,6 +40,14 @@ builder.Services.AddMassTransit(config => {
 // General configuration
 builder.Services.AddAutoMapper(typeof(IStartup));
 builder.Services.AddScoped<BasketCheckoutConsumer>();
+
+var app = builder.Build();
+
+app.MigrateDatabase<OrderContext>((context, services) =>
+{
+    var logger = services.GetService<ILogger<OrderContextSeed>>();
+    OrderContextSeed.SeedAsync(context, logger).Wait();
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
