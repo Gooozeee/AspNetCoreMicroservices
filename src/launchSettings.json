@@ -17,7 +17,8 @@
         "portainer": "StartWithoutDebugging",
         "discount.grpc": "StartDebugging",
         "orderdb": "StartWithoutDebugging",
-        "ordering.api": "StartDebugging"
+        "ordering.api": "StartDebugging",
+        "rabbitmq": "StartWithoutDebugging"
       }
     },
     "Docker Compose no debug": {
@@ -32,9 +33,10 @@
         "discountdb": "StartWithoutDebugging",
         "pgadmin": "StartWithoutDebugging",
         "portainer": "StartWithoutDebugging",
-        "discount.grpc": "StartDebugging",
+        "discount.grpc": "StartWithoutDebugging",
         "orderdb": "StartWithoutDebugging",
-        "ordering.api": "StartWithoutDebugging"
+        "ordering.api": "StartWithoutDebugging",
+        "rabbitmq": "StartWithoutDebugging"
       }
     }
   }
