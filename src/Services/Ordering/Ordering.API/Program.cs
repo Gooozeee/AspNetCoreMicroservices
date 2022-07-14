@@ -44,6 +44,11 @@ builder.Services.AddMassTransit(config => {
     });
 });
 
+
+// General configuration
+builder.Services.AddAutoMapper(typeof(IStartup));
+builder.Services.AddScoped<BasketCheckoutConsumer>();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
