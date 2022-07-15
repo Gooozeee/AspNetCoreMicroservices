@@ -8,7 +8,7 @@ namespace Discount.Grpc.Mapper
     {
         public DiscountProfile()
         {
-            CreateMap<Coupon, CouponModel>().ReverseMap();
+            CreateMap<CouponModel, Coupon>().ReverseMap();
         }
     }
 }

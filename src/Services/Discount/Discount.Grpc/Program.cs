@@ -17,6 +17,7 @@ builder.Services.AddAutoMapper(typeof(IStartup));
 
 var app = builder.Build();
 
+app.UseRouting();
 app.MigrateDatabase<Program>();
 
 // Configure the HTTP request pipeline.
