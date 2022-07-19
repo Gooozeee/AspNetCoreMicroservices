@@ -31,6 +31,10 @@ namespace Basket.API.Controllers
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ShoppingCart>> GetBasket(string userName)
         {
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                return BadRequest(new { Message = "Invalid User Name" });
+            }
             var basket = await _repository.GetBasket(userName);
             return Ok(basket ?? new ShoppingCart(userName));
         }
