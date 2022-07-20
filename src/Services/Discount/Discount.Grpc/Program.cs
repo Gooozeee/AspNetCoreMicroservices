@@ -1,4 +1,6 @@
+using AutoMapper;
 using Discount.Grpc.Extensions;
+using Discount.Grpc.Mapper;
 using Discount.Grpc.Repositories;
 using Discount.Grpc.Services;
 
@@ -12,8 +14,17 @@ builder.Services.AddGrpc();
 
 builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
 
-builder.Services.AddAutoMapper(typeof(IStartup));
+// Previous automapper config
+// builder.Services.AddAutoMapper(typeof(IStartup));
 
+var config = new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile(new DiscountProfile());
+});
+
+var mapper = config.CreateMapper();
+
+builder.Services.AddSingleton(mapper);
 
 var app = builder.Build();
 

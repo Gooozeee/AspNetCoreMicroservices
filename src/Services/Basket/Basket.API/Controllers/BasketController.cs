@@ -47,6 +47,11 @@ namespace Basket.API.Controllers
             // and calculate latest prices of product into the shopping cart
             // consume Discount Grpc
 
+            if (basket == null)
+            {
+                return BadRequest(new { Message = "Invalid Basket" });
+            }
+
             foreach (var item in basket.Items)
             {
                 var coupon = await _discountGrpcService.GetDiscount(item.ProductName);

@@ -16,7 +16,7 @@ namespace Ordering.Application.Mappings
         public MappingProfile()
         {
             CreateMap<Order, OrdersVm>().ReverseMap();
-            CreateMap<Order, CheckoutOrderCommand>().ReverseMap();
+            CreateMap<CheckoutOrderCommand, Order>().ReverseMap();
             CreateMap<Order, UpdateOrderCommand>().ReverseMap();
         }
     }

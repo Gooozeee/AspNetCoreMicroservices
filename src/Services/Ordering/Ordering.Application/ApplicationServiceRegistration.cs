@@ -8,6 +8,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Ordering.Application.Behaviours;
+using AutoMapper;
+using Ordering.Application.Mappings;
 
 namespace Ordering.Application
 {
@@ -15,7 +17,14 @@ namespace Ordering.Application
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            //var config = new MapperConfiguration(cfg =>
+            //{
+            //    cfg.AddProfile(new MappingProfile());
+            //});
+
+            //var mapper = config.CreateMapper();
+
+            //services.AddSingleton(mapper);
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
