@@ -26,6 +26,7 @@ namespace Basket.Test.Controller
         [Theory]
         [InlineData("Michal")]
         [InlineData("")]
+        [InlineData(null)]
         public void GetBasketTest(string? userName)
         {
             // Arrange
@@ -39,7 +40,7 @@ namespace Basket.Test.Controller
             var basket = basketController.GetBasket("Michal");
 
             // Assert
-            if (userName == "")
+            if (string.IsNullOrWhiteSpace(userName))
             {
                 _basketRepositoryMock.Verify(r => r.GetBasket(userName), Times.Never);
             }
@@ -81,7 +82,15 @@ namespace Basket.Test.Controller
             }
             else
             {
-                _basketRepositoryMock.Verify(r => r.UpdateBasket(shoppingCart), Times.Once);
+                if (string.IsNullOrWhiteSpace(shoppingCart.Items.First().ProductName))
+                {
+                    _basketRepositoryMock.Verify(r => r.UpdateBasket(shoppingCart), Times.Never);
+                }
+                else
+                {
+                    _basketRepositoryMock.Verify(r => r.UpdateBasket(shoppingCart), Times.Once);
+                }
+                
             }
             basket.Should().NotBeNull();
             basket.Result.Should().NotBeNull();

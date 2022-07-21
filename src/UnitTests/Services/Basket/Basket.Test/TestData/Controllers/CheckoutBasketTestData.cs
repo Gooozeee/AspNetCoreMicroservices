@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Basket.Tests.TestData.Controllers
 {
+    // Test data for the checkout basket test
     public class CheckoutBasketTestData : IEnumerable<object[]>
     {
         public IEnumerator<object[]> GetEnumerator()
