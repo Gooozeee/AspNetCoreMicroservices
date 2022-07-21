@@ -65,6 +65,11 @@ namespace Basket.API.Controllers
         [ProducesResponseType(typeof(void), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteBasket(string userName)
         {
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                return BadRequest(new { Message = "Invalid username" });
+            }
+
             await _repository.DeleteBasket(userName);
             return Ok();
         }
