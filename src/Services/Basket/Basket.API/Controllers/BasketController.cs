@@ -49,11 +49,16 @@ namespace Basket.API.Controllers
 
             if (basket == null)
             {
-                return BadRequest(new { Message = "Invalid Basket" });
+                return BadRequest(new { Message = "Basket is null" });
             }
 
             foreach (var item in basket.Items)
             {
+                if(string.IsNullOrWhiteSpace(item.ProductName))
+                {
+                    return BadRequest(new { Message = $"The item {item.ProductId} is missing a name" });
+                }
+
                 var coupon = await _discountGrpcService.GetDiscount(item.ProductName);
                 item.Price -= coupon.Amount;
             }
