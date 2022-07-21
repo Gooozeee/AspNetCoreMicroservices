@@ -47,7 +47,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{85
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{47908352-3F09-43F3-84EA-28C2FBF07656}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.Test", "UnitTests\Services\Basket\Basket.Test\Basket.Test.csproj", "{88700A54-5BA3-4C39-966B-4F40F7551F9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Tests", "UnitTests\Services\Basket\Basket.Test\Basket.Tests.csproj", "{88700A54-5BA3-4C39-966B-4F40F7551F9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
